@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <aside class="aside">
+        <p class="win hidden"></p>
+        <p class="lose hidden">You lose!</p>
+    </aside>
+
+
+    <p class="balance">Balance: <span class="balance__sum">0</span></p>
+
+    <div class="wrapperBet">
+        <span class="bet">100</span>
+        <div class="options">
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+        </div>
+    </div>
+
+    <main class="slotter">
+        <p class="main-text">lose your money</p>
+        <div class="slot__window">
+            <div class="slot__block">
+                <p id="number-1" class="slot__number">1</з>
+            </div>
+            <div class="slot__block">
+                <p id="number-2" class="slot__number">2</з>
+            </div>
+            <div class="slot__block">
+                <p id="number-3" class="slot__number">3</з>
+            </div>
+        </div>
+        <button id="btn" class="slot__button">spin</button>
+    </main>
+
+    <button class="button-farm">Get Money</button>
+
+
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

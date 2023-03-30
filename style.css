@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #828080;
+    max-height: 1080px;
+    max-width: 1920px;
+    width: 100%;
+    background: url('./assets/backneon.jpg') no-repeat;
+    background-size: cover;
+}
+
+.slotter {
+    width: 1020px;
+    height: 600px;
+    margin: 100px auto;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px 3px rgba(129, 9, 143, 0.2);
+}
+
+.slot__window {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+}
+
+.slot__block {
+    background: rgb(255, 255, 255, 0.15);
+    width: 200px;
+    height: 35%;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 0px 15px 2px rgba(255, 0, 0, 0.15),
+        5px 0px 15px 2px rgba(0, 0, 255, 0.15);
+    user-select: none;
+}
+
+.slot__number {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px;
+    color: rgba(95, 29, 165, 0.9);
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+}
+
+.main-text {
+    position: fixed;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Fasthand', cursive;
+    font-size: 65px;
+    top: -10px;
+    left: 30%;
+    letter-spacing: 10px;
+    text-shadow: 3px 3px 7px rgb(200, 8, 200);
+    user-select: none;
+}
+
+.slot__button {
+    margin-top: 55px;
+    height: 65px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    background: #0000005b;
+    border: none;
+    font-weight: bold;
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    font-size: 40px;
+    text-shadow: 4px 1px 2px rgba(95, 29, 165, 0.9);
+    transition: all .2s;
+    user-select: none;
+}
+
+.slot__button:hover {
+    border: 2px solid rgba(177, 7, 200, 0.802);
+    background: rgba(50, 33, 78, 0.25);
+    color: rgba(177, 7, 200, 0.6);
+    text-shadow: 4px 1px 2px rgba(90, 196, 238, 0.7);
+    letter-spacing: 20px;
+}
+
+.aside {
+    position: fixed;
+    width: 700px;
+    height: 100px;
+    top: 17%;
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.win {
+    display: block;
+    color: rgba(0, 255, 0, .75);
+    letter-spacing: 2px;
+}
+
+.lose {
+    display: block;
+    color: rgba(255, 58, 58, 0.5);
+}
+
+.hidden {
+    display: none;
+}
+
+.balance {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 50px;
+}
+
+.wrapperBet {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 14%;
+    top: 40%;
+    border: 1px solid white;
+    border-radius: 10px;
+    background: rgba(50, 33, 78, 0.25);
+}
+
+.bet {
+    font-size: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.options {}
+
+.plus {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.minus {
+    cursor: pointer;
+    font-size: 35px;
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.button-farm {
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0.25);
+    border: none;
+    color: white;
+    position: fixed;
+    bottom: 50px;
+    left: 20px;
+    padding: 10px;
+    border: 2px solid rgba(50, 33, 78, 0.25);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.button-farm:hover {
+    transform: scale(1.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.button-farm:active {
+    background: rgba(220, 220, 220, 0.25);
+}
