@@ -10,7 +10,7 @@ const minus = document.querySelector('.minus')
 const bet = document.querySelector('.bet');
 const getMoney = document.querySelector('.button-farm');
 const moneyFarm = document.querySelector('.money-farm');
-
+const moneyLose = document.querySelector('.money-lose');
 let betAmount = bet.textContent;
 let pressed = true;
 let multiplayer = 0;
@@ -45,6 +45,7 @@ btn.addEventListener('click', () => {
         lose.textContent = 'Bet should be atleast 100$!'
         lose.classList.remove('hidden')
     } else {
+
         let first = 0;
         let second = 0;
         let third = 0;
@@ -54,6 +55,11 @@ btn.addEventListener('click', () => {
             lose.classList.add('hidden')
             console.log(pressed)
             if (pressed) {
+                moneyLose.textContent = `-${betAmount}$`;
+                moneyLose.classList.add('active')
+                setTimeout(() => {
+                    moneyLose.classList.remove('active')
+                }, 250)
                 balance.textContent = balance.textContent - betAmount;
                 pressed = false;
                 console.log(pressed)
