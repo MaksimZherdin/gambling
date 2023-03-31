@@ -11,6 +11,9 @@ const bet = document.querySelector('.bet');
 const getMoney = document.querySelector('.button-farm');
 const moneyFarm = document.querySelector('.money-farm');
 const moneyLose = document.querySelector('.money-lose');
+
+
+
 let betAmount = bet.textContent;
 let pressed = true;
 let multiplayer = 0;
@@ -37,6 +40,37 @@ minus.addEventListener('click', () => {
 
 })
 
+function soundSpin() {
+    let audio = new Audio();
+    audio.src = "./assets/slot-machine-press-spin-button.mp3";
+    audio.autoplay = true;
+    audio.volume = 0.35;
+}
+function soundGetMoney() {
+    let audio = new Audio();
+    audio.src = "./assets/getMoney.mp3";
+    audio.autoplay = true;
+    audio.volume = 0.15;
+}
+function soundWin() {
+    let audio = new Audio();
+    audio.src = "./assets/win.mp3";
+    audio.autoplay = true;
+    audio.volume = 0.35;
+}
+function soundRoulette() {
+    let audio = new Audio();
+    audio.src = "./assets/mechanical_analog_ticking.mp3";
+    audio.autoplay = true;
+    audio.volume = 0.30;
+}
+function soundLose() {
+    let audio = new Audio();
+    audio.src = "./assets/lose.mp3";
+    audio.autoplay = true;
+    audio.volume = 0.1;
+}
+
 btn.addEventListener('click', () => {
     if (betAmount > balance.textContent) {
         lose.textContent = 'Not enough balance!'
@@ -45,7 +79,10 @@ btn.addEventListener('click', () => {
         lose.textContent = 'Bet should be atleast 100$!'
         lose.classList.remove('hidden')
     } else {
+        btn.disabled = true;
 
+        soundSpin();
+        soundRoulette();
         let first = 0;
         let second = 0;
         let third = 0;
@@ -66,7 +103,7 @@ btn.addEventListener('click', () => {
                 pressed = false;
                 console.log(pressed)
                 const inter = setInterval(() => {
-                    if (i < 15) {
+                    if (i < 25) {
                         i++
                         first = Math.floor(Math.random() * 10);
                         second = Math.floor(Math.random() * 10);
@@ -91,20 +128,25 @@ btn.addEventListener('click', () => {
                 pressed = true;
                 plus.disabled = false;
                 minus.disabled = false;
+                btn.disabled = false;
             } else if (first == second || second == third || first == third) {
                 multiplayer = 4;
                 win.textContent = `You won: ${Number(bet.textContent) * Number(multiplayer)}$!`
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
                 win.classList.remove('hidden');
+                soundWin();
                 pressed = true;
                 plus.disabled = false;
                 minus.disabled = false;
+                btn.disabled = false;
             } else {
                 lose.textContent = 'You lose!'
                 lose.classList.remove('hidden')
+                soundLose();
                 pressed = true;
                 plus.disabled = false;
                 minus.disabled = false;
+                btn.disabled = false;
             }
         }
         interval();
@@ -114,6 +156,7 @@ btn.addEventListener('click', () => {
 getMoney.addEventListener('click', () => {
     moneyFarm.classList.add('active');
     balance.textContent = Number(balance.textContent) + 100;
+    soundGetMoney();
     setTimeout(() => {
         moneyFarm.classList.remove('active');
     }, 150);
