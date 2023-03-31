@@ -9,6 +9,7 @@ const plus = document.querySelector('.plus')
 const minus = document.querySelector('.minus')
 const bet = document.querySelector('.bet');
 const getMoney = document.querySelector('.button-farm');
+const moneyFarm = document.querySelector('.money-farm');
 
 let betAmount = bet.textContent;
 let pressed = true;
@@ -97,5 +98,9 @@ btn.addEventListener('click', () => {
 })
 
 getMoney.addEventListener('click', () => {
+    moneyFarm.classList.add('active');
     balance.textContent = Number(balance.textContent) + 100;
+    setTimeout(() => {
+        moneyFarm.classList.remove('active');
+    }, 150);
 })
