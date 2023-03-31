@@ -50,6 +50,8 @@ btn.addEventListener('click', () => {
         let second = 0;
         let third = 0;
         let i = 0;
+        plus.disabled = true;
+        minus.disabled = true;
         const interval = () => {
             win.classList.add('hidden')
             lose.classList.add('hidden')
@@ -87,16 +89,22 @@ btn.addEventListener('click', () => {
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
                 win.classList.remove('hidden')
                 pressed = true;
+                plus.disabled = false;
+                minus.disabled = false;
             } else if (first == second || second == third || first == third) {
                 multiplayer = 4;
                 win.textContent = `You won: ${Number(bet.textContent) * Number(multiplayer)}$!`
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
                 win.classList.remove('hidden');
                 pressed = true;
+                plus.disabled = false;
+                minus.disabled = false;
             } else {
                 lose.textContent = 'You lose!'
                 lose.classList.remove('hidden')
                 pressed = true;
+                plus.disabled = false;
+                minus.disabled = false;
             }
         }
         interval();
