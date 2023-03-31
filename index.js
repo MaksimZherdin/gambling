@@ -14,6 +14,17 @@ const moneyLose = document.querySelector('.money-lose');
 
 const statsWin = document.querySelector('.stats-win')
 const statsLose = document.querySelector('.stats-lose')
+const slot__fruit_1 = document.querySelector('.slot__fruit-1');
+const slot__fruit_2 = document.querySelector('.slot__fruit-2');
+const slot__fruit_3 = document.querySelector('.slot__fruit-3');
+
+const lemon = './assets/lemon.png'
+const cherry = './assets/cherry.png'
+const meelon = './assets/meelon.png'
+const purple = './assets/purple.png'
+const strawberry = './assets/strawberry.png'
+
+const arrFruits = [lemon, cherry, meelon, purple, strawberry];
 
 let betAmount = bet.textContent;
 let pressed = true;
@@ -81,13 +92,12 @@ btn.addEventListener('click', () => {
         lose.classList.remove('hidden')
     } else {
         btn.disabled = true;
-
-        soundSpin();
-        soundRoulette();
         let first = 0;
         let second = 0;
         let third = 0;
         let i = 0;
+        soundSpin();
+        soundRoulette();
         plus.disabled = true;
         minus.disabled = true;
         const interval = () => {
@@ -106,12 +116,13 @@ btn.addEventListener('click', () => {
                 const inter = setInterval(() => {
                     if (i < 25) {
                         i++
-                        first = Math.floor(Math.random() * 10);
-                        second = Math.floor(Math.random() * 10);
-                        third = Math.floor(Math.random() * 10);
-                        number1.textContent = first;
-                        number2.textContent = second;
-                        number3.textContent = third;
+                        first = Math.floor(Math.random() * 5);
+                        second = Math.floor(Math.random() * 5);
+                        third = Math.floor(Math.random() * 5);
+
+                        slot__fruit_1.src = arrFruits[first]
+                        slot__fruit_2.src = arrFruits[second]
+                        slot__fruit_3.src = arrFruits[third]
                     } else {
                         pressed = true;
                         winOrNot();
@@ -130,6 +141,7 @@ btn.addEventListener('click', () => {
                 win.textContent = `BIG WIN: ${Number(bet.textContent) * Number(multiplayer)}$!!!`
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
                 win.classList.remove('hidden');
+                soundWin();
                 statsWin.textContent = Number(statsWin.textContent) + 1
 
             } else if (first == second || second == third || first == third) {
