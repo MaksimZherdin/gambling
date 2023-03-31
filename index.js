@@ -12,7 +12,8 @@ const getMoney = document.querySelector('.button-farm');
 const moneyFarm = document.querySelector('.money-farm');
 const moneyLose = document.querySelector('.money-lose');
 
-
+const statsWin = document.querySelector('.stats-win')
+const statsLose = document.querySelector('.stats-lose')
 
 let betAmount = bet.textContent;
 let pressed = true;
@@ -120,33 +121,29 @@ btn.addEventListener('click', () => {
             }
         }
         function winOrNot() {
+            pressed = true;
+            plus.disabled = false;
+            minus.disabled = false;
+            btn.disabled = false;
             if (first == second && second == third) {
                 multiplayer = 20;
                 win.textContent = `BIG WIN: ${Number(bet.textContent) * Number(multiplayer)}$!!!`
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
-                win.classList.remove('hidden')
-                pressed = true;
-                plus.disabled = false;
-                minus.disabled = false;
-                btn.disabled = false;
+                win.classList.remove('hidden');
+                statsWin.textContent = Number(statsWin.textContent) + 1
+
             } else if (first == second || second == third || first == third) {
                 multiplayer = 4;
                 win.textContent = `You won: ${Number(bet.textContent) * Number(multiplayer)}$!`
                 balance.textContent = Number(balance.textContent) + multiplayer * bet.textContent
                 win.classList.remove('hidden');
                 soundWin();
-                pressed = true;
-                plus.disabled = false;
-                minus.disabled = false;
-                btn.disabled = false;
+                statsWin.textContent = Number(statsWin.textContent) + 1
             } else {
                 lose.textContent = 'You lose!'
                 lose.classList.remove('hidden')
                 soundLose();
-                pressed = true;
-                plus.disabled = false;
-                minus.disabled = false;
-                btn.disabled = false;
+                statsLose.textContent = Number(statsLose.textContent) + 1
             }
         }
         interval();
